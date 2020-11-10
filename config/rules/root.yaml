@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: The root stack for all config rules
+Resources:
+  IAMRules:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      Parameters:
+        BlockedActionPatterns: kms:*
+      TemplateURL: iam-rules.yaml
+  AccessKeyRule:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      Parameters:
+        MaxAccessKeyAge: 90
+      TemplateURL: access-key-rule.yaml

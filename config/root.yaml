@@ -1,7 +1,13 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: Root stack for config resources
 Resources:
-  DummyServer:
-    Type: "AWS::EC2::Instance"
+  ConfigSetup:
+    Type: AWS::CloudFormation::Stack
     Properties:
-      ImageId: ""
+      TemplateURL: setup/setup.yaml
+  ConfigRules:
+    DependsOn:
+      - ConfigSetup
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: rules/root.yaml

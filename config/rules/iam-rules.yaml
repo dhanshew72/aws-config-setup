@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: A template for IAM rules
+Parameters:
+  BlockedActionPatterns:
+    Description: Pattern for blocked permissions
+    Type: String
+Resources:
+  IAMInlinePolicyBlockedKMSActions:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: iam-inline-policy-blocked-kms-actions
+      InputParameters:
+        blockedActionsPatterns: !Ref BlockedActionPatterns
+      Source:
+        Owner: AWS
+        SourceIdentifier: IAM_INLINE_POLICY_BLOCKED_KMS_ACTIONS
+  IAMCustomerPolicyBlockedKMSActions:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: iam-customer-policy-blocked-kms-actions
+      InputParameters:
+        blockedActionsPatterns: !Ref BlockedActionPatterns
+      Source:
+        Owner: AWS
+        SourceIdentifier: IAM_CUSTOMER_POLICY_BLOCKED_KMS_ACTIONS
