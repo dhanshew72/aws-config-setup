@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: An access key for rule for age of keys
+Parameters:
+  DaysToExpiration:
+    Description: Days to expiration for ACM certificate
+    Type: String
+Resources:
+  ACMKey:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: acm-certificate-expiration-check
+      InputParameters:
+        daysToExpiration: !Ref DaysToExpiration
+      Source:
+        Owner: AWS
+        SourceIdentifier: ACM_CERTIFICATE_EXPIRATION_CHECK

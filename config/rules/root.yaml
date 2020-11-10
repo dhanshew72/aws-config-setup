@@ -16,4 +16,10 @@ Resources:
   AccountPartOfOrganizations:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: account-part-of-organizations.yaml
+      TemplateURL: account-part-of-organizations-rule.yaml
+  ACMCertificateExpirationCheck:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      Parameters:
+        DaysToExpiration: 60
+      TemplateURL: acm-certificate-expiration-check-rule.yaml
