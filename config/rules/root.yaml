@@ -13,3 +13,7 @@ Resources:
       Parameters:
         MaxAccessKeyAge: 90
       TemplateURL: access-key-rule.yaml
+  AccountPartOfOrganizations:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: account-part-of-organizations.yaml
