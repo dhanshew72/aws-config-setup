@@ -23,3 +23,47 @@ Resources:
       Parameters:
         DaysToExpiration: 60
       TemplateURL: acm-certificate-expiration-check-rule.yaml
+  ALBRules:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: alb-rules.yaml
+  APIGWRules:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: api-gw-rules.yaml
+  ApprovedAMIsRules:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: approved-amis-rules.yaml
+  AutoscalingRules:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: autoscaling-group-elb-healthcheck-required.yaml
+  CloudFormationRules:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: cloudformation-rules.yaml
+  CloudtrailRules:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: cloudtrail-rules.yaml
+  CloudwatchRules:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: cloudwatch-rules.yaml
+  CMKBackingKeyRotationEnabled:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: cmk-backing-key-rotation-enabled.yaml
+  CodeBuildRules:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: codebuild-rules.yaml
+  CodePipelineRules:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: code-pipeline-rules.yaml
+  DaxEncryptionRule:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: dax-encryption-rule.yaml

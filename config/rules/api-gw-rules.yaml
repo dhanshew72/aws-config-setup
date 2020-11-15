@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: API Gateway config rules
+Resources:
+  APIGWCacheEnabledAndEncrypted:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: api-gw-cache-enabled-and-encrypted
+      Source:
+        Owner: AWS
+        SourceIdentifier: API_GW_CACHE_ENABLED_AND_ENCRYPTED
+  APIGWEndpointTypeCheck:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: api-gw-endpoint-type-check
+      InputParameters:
+        endpointConfigurationTypes: REGIONAL,PRIVATE,EDGE
+      Source:
+        Owner: AWS
+        SourceIdentifier: API_GW_ENDPOINT_TYPE_CHECK
+  APIGWExecutionLoggingEnabled:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: api-gw-execution-logging-enabled
+      InputParameters:
+        loggingLevel: ERROR,INFO
+      Source:
+        Owner: AWS
+        SourceIdentifier: API_GW_EXECUTION_LOGGING_ENABLED

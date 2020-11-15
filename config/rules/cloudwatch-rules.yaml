@@ -1,0 +1,57 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: The cloudwatch config rules
+Resources:
+  CloudwatchAlarmActionCheck:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: cloudwatch-alarm-action-check
+      InputParameters:
+        alarmActionRequired: true
+        insufficientDataActionRequired: true
+        okActionRequired: true
+        action1: '<INSERT ARN>'
+        action2: '<INSERT ARN>'
+        action3: '<INSERT ARN>'
+        action4: '<INSERT ARN>'
+        action5: '<INSERT ARN>'
+      Source:
+        Owner: AWS
+        SourceIdentifier: CLOUDWATCH_ALARM_ACTION_CHECK
+#  CloudwatchAlarmResourceCheck:
+#    Type: AWS::Config::ConfigRule
+#    Properties:
+#      ConfigRuleName: cloudwatch-alarm-resource-check
+#      InputParameters:
+#        resourceType: '<INSERT RESOURCE TYPE>'
+#        metricName: '<INSERT METRIC NAME>'
+#      Source:
+#        Owner: AWS
+#        SourceIdentifier: CLOUDWATCH_ALARM_RESOURCE_CHECK
+#  CloudwatchAlarmSettingsCheck:
+#    Type: AWS::Config::ConfigRule
+#    Properties:
+#      ConfigRuleName: cloudwatch-alarm-settings-check
+#      InputParameters:
+#        metricName: '<INSERT METRIC NAME>'
+#        threshold: '<INSERT THRESHOLD>'
+#        evaluationPeriod: '<INSERT EVAL PERIOD>'
+#        period: '<INSERT PERIOD>'
+#        comparisonOperator: '<INSERT COMPARISON OPERATOR>'
+#        statistic: '<INSERT STATISTIC>'
+#      Source:
+#        Owner: AWS
+#        SourceIdentifier: CLOUDWATCH_ALARM_SETTINGS_CHECK
+  CloudwatchLogGroupEncrypted:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: cloudwatch-log-group-encrypted
+      Source:
+        Owner: AWS
+        SourceIdentifier: CLOUDWATCH_LOG_GROUP_ENCRYPTED
+  CloudwatchLogGroupRetentionPeriodCheck:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: cw-loggroup-retention-period-check
+      Source:
+        Owner: AWS
+        SourceIdentifier: CW_LOGGROUP_RETENTION_PERIOD_CHECK

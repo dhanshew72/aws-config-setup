@@ -1,0 +1,21 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Codebuild config rules
+Resources:
+  CodePipelineDeploymentCountCheck:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: codepipeline-deployment-count-check
+      InputParameters:
+        deploymentLimit: 10 # Insert different value here
+      Source:
+        Owner: AWS
+        SourceIdentifier: CODEPIPELINE_DEPLOYMENT_COUNT_CHECK
+  CodePipelineRegionFanoutCheck:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: codepipeline-region-fanout-check
+      InputParameters:
+        regionFanoutFactor: 1 # Insert different value
+      Source:
+        Owner: AWS
+        SourceIdentifier: CODEPIPELINE_REGION_FANOUT_CHECK

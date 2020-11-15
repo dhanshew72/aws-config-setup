@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: The config cf rules
+Resources:
+  CloudformationStackDriftDetectionCheck:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: cloudformation-stack-drift-detection-check
+      InputParameters:
+        cloudformationRoleArn: '<INSERT CF ROLE>'
+      Source:
+        Owner: AWS
+        SourceIdentifier: CLOUDFORMATION_STACK_DRIFT_DETECTION_CHECK
+  ApprovedAMISByTag:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: cloudformation-stack-notification-check
+      InputParameters:
+        snsTopic1: '<INSERT SNS TOPIC>'
+        snsTopic2: '<INSERT SNS TOPIC>'
+        snsTopic3: '<INSERT SNS TOPIC>'
+        snsTopic4: '<INSERT SNS TOPIC>'
+        snsTopic5: '<INSERT SNS TOPIC>'
+      Source:
+        Owner: AWS
+        SourceIdentifier: CLOUDFORMATION_STACK_NOTIFICATION_CHECK

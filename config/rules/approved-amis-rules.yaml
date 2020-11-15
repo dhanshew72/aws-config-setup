@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Approved AMIs IDs rules
+Parameters:
+  AMIIDs:
+    Description: A string CSV list of AMI IDs
+    Type: String
+    Default: ami-026860fee24856fc0
+  AMITags:
+    Description: A string CSV list of AMI tags
+    Type: String
+    Default: tagKey:tagValue
+Resources:
+  ApprovedAMISByID:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: approved-amis-by-id
+      InputParameters:
+        amiIds: !Ref AMIIDs
+      Source:
+        Owner: AWS
+        SourceIdentifier: APPROVED_AMIS_BY_ID
+  ApprovedAMISByTag:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: approved-amis-by-tag
+      InputParameters:
+        amisByTagKeyAndValue: !Ref AMITags
+      Source:
+        Owner: AWS
+        SourceIdentifier: APPROVED_AMIS_BY_TAG

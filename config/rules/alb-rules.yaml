@@ -1,0 +1,24 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: The ALB config rules
+Resources:
+  ALBHTTPDropInvalidHeader:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: alb-http-drop-invalid-header-enabled
+      Source:
+        Owner: AWS
+        SourceIdentifier: ALB_HTTP_DROP_INVALID_HEADER_ENABLED
+  ALBHTTPToHTTPSRedirectionCheck:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: alb-http-to-https-redirection-check
+      Source:
+        Owner: AWS
+        SourceIdentifier: ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK
+  ALBWAFEnabled:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: alb-waf-enabled
+      Source:
+        Owner: AWS
+        SourceIdentifier: ALB_WAF_ENABLED

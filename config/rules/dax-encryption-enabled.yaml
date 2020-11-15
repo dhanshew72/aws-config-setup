@@ -1,0 +1,10 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description:
+Resources:
+  DAXEncryptionEnabled:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: dax-encryption-enabled
+      Source:
+        Owner: AWS
+        SourceIdentifier: DAX_ENCRYPTION_ENABLED

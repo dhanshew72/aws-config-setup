@@ -1,0 +1,10 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Autoscaling config rule
+Resources:
+  ALBWAFEnabled:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: autoscaling-group-elb-healthcheck-required
+      Source:
+        Owner: AWS
+        SourceIdentifier: AUTOSCALING_GROUP_ELB_HEALTHCHECK_REQUIRED
